@@ -1,0 +1,75 @@
+# https://docs.python.org/3.6/library/configparser.html
+# Use a list to pass multiple values if needed (e.g., emails).
+# Duplicate keys are not allowed in a section.
+# 
+[PROJECT]
+FS_PROJECT_ROOT = /home/prospar/micro-virtualenv/gem5-false-sharing
+FS_BENCH_ROOT = /home/prospar/micro-virtualenv/false-sharing-benchmarks
+FS_VENV = /home/prospar/micro-virtualenv
+EXP_OUTPUT_ROOT = /home/prospar/prospar-micro-output
+EXP_RESULTS_ROOT = /home/prospar/prospar-micro-result
+FS_RESRC_ROOT = /home/prospar/micro-virtualenv/false-sharing-resources
+
+# add command to create the directory if not exist
+[USER]
+USER = prospar
+EMAIL = prospar@cse.iitk.ac.in
+
+[FS]
+# We should choose a memory subsystem configuration that can avoid pressure on the memory
+ # subsystem. For a n-thread simulation, we should use a n-core configuration. We should use a
+ # 1-to-1 mapping between cores and threads, and it is okay to use 2MB caches per core.
+
+NUM_CPUS = 8
+CPU_FREQ = "3GHz"
+CLK_FREQ = "2GHz"
+DRAM_TYPE = "DDR3"
+CPU_TYPE = "timing"
+
+CACHELINE_SIZE = 64
+
+PRIMARY_MEM = "3GB"
+
+L1D_ASSOC = 8
+L1D_SIZE = "32kB"
+
+L1I_ASSOC = 8
+L1I_SIZE = "32kB"
+
+L2_ASSOC = 16
+L2_SIZE = "2MB"
+
+TRACKING_WIDTH=1
+
+INV_THRESHOLD=16
+FETCH_THRESHOLD=16
+SATURATION_THRESHOLD=128
+HYSTERESIS_THRESHOLD=3
+
+GLOBAL_ACT_SIZE=128
+ASSOC_ACT=16
+
+SIZE_OWN=512
+
+RESET_TICK=100000
+
+# use --opt_readers as value to enable optimized readers information
+OPT_READERS=--opt_readers
+REPORT_PC = "--report_pc"
+# use "--enableMultipleReport" to allow multiple reports
+# of a instance during a sharing episode
+ALLOW_MULTI_REPORT=
+# use "--disableMDCommOpt" for disabling the MD comm optmization 
+DISABLE_MD_COMM_OPT=
+
+[SCRIPT_PATH]
+ CUSTOM="src/spec-2006/configs/run_spec.py"
+ PARSEC="src/parsec/configs/run_parsec.py"
+
+[DISK_PATH]
+ CUSTOM="disk-images/custom-vm"
+ PARSEC="disk-images/parsec-v1"
+
+[KERNEL_PATH]
+ KERNEL="src/linux-kernel/vmlinux-4.19.83"
+

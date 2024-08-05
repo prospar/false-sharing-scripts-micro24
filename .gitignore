@@ -1,0 +1,14 @@
+.vscode
+*.pyc
+config.ini
+.log
+typings
+*.out
+src/graph_plotting_script/*.pdf
+src/mcpat/code/obj_opt/*
+src/mcpat/code/mcpat*
+/.ropeproject/
+logs/
+/.tags/
+scripts/
+*.json
