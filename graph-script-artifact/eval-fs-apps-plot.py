@@ -10,11 +10,11 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-# PATH_CSV = "/home/swarnendu/prospar-exp-results/261123-asplos24-intro/Stat_formatted.csv"
-# PATH_CSV = "/home/vipin/Documents/false-sharing-result/asplos-intro/Stat_formatted.csv"
+
 # Diff csv file : Stat_formatted.csv, Stats_Avg.csv, Stats_Median.csv, Stats_Max.csv, Stats_Min.csv
-# PATH_CSV = "/home/vipin/Documents/false-sharing-result/micro-2024-result/result/custom/Stats_Avg.csv"
-PATH_CSV = "/home/vipin/Documents/false-sharing-result/micro-2024-result/result/app-fs/Stats_Avg.csv"
+PATH_CSV = "/home/prospar/prospar-micro-result/micro-false-sharing-app/Stats_Avg.csv"
+
+PATH_CSV = str(sys.argv[1])
 
 KEY_BENCH = "bench"
 KEY_PROTOCOL = "protocol"
@@ -41,7 +41,7 @@ KEY_TOTAL_MD = "KEY_MD_TOTAL_MD_MSG"
 KEY_EVICTION_MD = "KEY_MD_EVIC_MD_MSG"
 KEY_CONTROL_MD = "KEY_MD_CONTROL_MD_MSG"
 KEY_MD_DATA_MSG = "KEY_MD_MD_MSG"
-# vipin: these indexex changes due to addition of new stats
+# PROSPAR: these indexex changes due to addition of new stats
 IDX_PROTOCOL = 0
 IDX_BENCH = 3
 IDX_RUNTIME = 6
@@ -322,10 +322,10 @@ def read_csv_file():
              + str_to_float(row[IDX_LLC_UPG]) + str_to_float(row[IDX_UP_ALL])\
               + str_to_float(row[IDX_UP_DMD]) + str_to_float(row[IDX_UP_EDS])\
                 + str_to_float(row[IDX_UP_MD])
-        # VIPIN: BYPASS the assert for repair and detect protocol
+        # PROSPAR: BYPASS the assert for repair and detect protocol
         if "FS_MESI" not in row[IDX_PROTOCOL]:
           assert (tmp[KEY_ENERGY_PAM] == 0 and tmp[KEY_ENERGY_SAM] == 0)
-        # VIPIN: adding protocol specific name to differentiate entry in map
+        # PROSPAR: adding protocol specific name to differentiate entry in map
         if "FS_MESI_DETECTION" in row[IDX_PROTOCOL]:
           bench_data[row[IDX_BENCH]+ "-detect"] = tmp
         elif "FS_MESI" in row[IDX_PROTOCOL]:
@@ -509,7 +509,7 @@ def plot_energy():
 def main():
   read_csv_file()
   # print(bench_data)
-  # plot_time()
+  plot_time()
   # plot_traffic_vol()
   # plot_traffic_count()
   plot_energy() # use different range, so run one at a time

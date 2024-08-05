@@ -5,7 +5,7 @@ if [ -d "/home/prospar/prospar-micro-output/micro-false-sharing-app" && -d "/hom
     echo "Directories for primary result of FSLite and FSDetect protocol exist"
 else
     echo "Run the false-sharing-app-script.sh"
-    bash false-sharing-app-script.sh false-sharing-app fslite-fsdetect 
+    bash false-sharing-app-script.sh false-sharing-app fslite-fsdetect $1
 fi
 
 # copy the baseline result to manual fix output directory
@@ -15,7 +15,7 @@ if [ -d "/home/prospar/prospar-micro-output/micro-baseline-32KB" && -d "/home/pr
 else
     echo "Run the baseline-32KB-script.sh"
     # cp scripts/baseline-32KB-script.sh .
-    bash baseline-32KB-script.sh false-sharing-app mesi-nb 1
+    bash baseline-32KB-script.sh false-sharing-app mesi-nb $1
     cp -r /home/prospar/prospar-micro-output/micro-baseline-32KB/MESI_Nonblocking /home/prospar/prospar-micro-output/micro-false-sharing-app/MESI_Nonblocking
 fi
 
