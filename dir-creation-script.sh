@@ -17,3 +17,4 @@ mkdir micro-sam
 mkdir micro-reader-optimization
 mkdir micro-baseline-40KB
 echo "Directories created for micro-results"
+cd /home/prospar/false-sharing-scripts-micro
