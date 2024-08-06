@@ -37,6 +37,21 @@ if [ -f "/home/prospar/micro-virtualenv/false-sharing-micro24/false-sharing-reso
 else
     echo "custom compress image does not exist"
 fi
+
+if [ -d "/home/prospar/prospar-micro-output" ]; then
+    echo "output directory exists"
+else
+    echo "output directory does not exist, creating"
+    mkdir /home/prospar/prospar-micro-output
+fi
+
+if [ -d "/home/prospar/prospar-micro-result" ]; then
+    echo "result directory exists"
+else
+    echo "output directory does not exist, creating"
+    mkdir /home/prospar/prospar-micro-result
+fi
+
 echo "Direcotry structure is valid...."
 
 perf_val=$(cat /proc/sys/kernel/perf_event_paranoid)
