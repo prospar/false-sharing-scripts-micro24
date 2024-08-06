@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing
+# cd /home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing
 
 echo "Building all three protocols"
 python3 src/main.py --tasks build_gem5 --trials 1 --bench false-sharing --verbose 1 --protocol MESI_Nonblocking --workloadSize small  --outputDir micro-result --benchmark_type custom
@@ -22,4 +22,4 @@ else
     echo "FS MESI build failed"
 fi
 
-cd /home/prospar/micro-virtualenv/false-sharing-scripts-micro24
+# cd /home/prospar/micro-virtualenv/false-sharing-scripts-micro24
