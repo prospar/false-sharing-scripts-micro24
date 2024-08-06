@@ -39,12 +39,12 @@ else
 fi
 echo "Direcotry structure is valid...."
 
-perf_val = $(cat /proc/sys/kernel/perf_event_paranoid)
+perf_val=$(cat /proc/sys/kernel/perf_event_paranoid)
 # check if perf_event_paranoid is set to -1
 if [ $perf_val -eq -1 ]; then
     echo "perf_event_paranoid is set to -1"
 else
-    echo " set perf_event_paranoid to -1 by running the following command"
+    echo "set perf_event_paranoid to -1 by running the following command"
     echo "sudo sysctl -w kernel.perf_event_paranoid=-1"
 fi
 
