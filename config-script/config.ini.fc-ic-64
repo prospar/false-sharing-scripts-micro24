@@ -3,12 +3,12 @@
 # Duplicate keys are not allowed in a section.
 # 
 [PROJECT]
-FS_PROJECT_ROOT = /home/prospar/micro-virtualenv/gem5-false-sharing
-FS_BENCH_ROOT = /home/prospar/micro-virtualenv/false-sharing-benchmarks
+FS_PROJECT_ROOT = /home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing
+FS_BENCH_ROOT = /home/prospar/micro-virtualenv/false-sharing-micro24/false-sharing-benchmarks
 FS_VENV = /home/prospar/micro-virtualenv
-EXP_OUTPUT_ROOT = /home/prospar/prospar-micro-output
-EXP_RESULTS_ROOT = /home/prospar/prospar-micro-result
-FS_RESRC_ROOT = /home/prospar/micro-virtualenv/false-sharing-resources
+EXP_OUTPUT_ROOT = /home/prospar/prospar-micro-output/
+EXP_RESULTS_ROOT = /home/prospar/prospar-micro-result/
+FS_RESRC_ROOT = /home/prospar/micro-virtualenv/false-sharing-micro24/false-sharing-resources
 
 # add command to create the directory if not exist
 [USER]

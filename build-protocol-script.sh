@@ -3,6 +3,7 @@
 # cd /home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing
 
 echo "Building all three protocols"
+cp config.ini.example config.ini
 python3 src/main.py --tasks build_gem5 --trials 1 --bench false-sharing --verbose 1 --protocol MESI_Nonblocking --workloadSize small  --outputDir micro-result --benchmark_type custom
 if [ -f "/home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing/build/X86_MESI_Nonblocking/gem5.opt" ]; then
     echo "MESI Nonblocking build successful"
