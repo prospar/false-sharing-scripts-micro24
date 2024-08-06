@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd  /home/prospar/micro-virtualenv/gem5-fs-resources/disk-images
+cd  $MICRO_RESOURCE/disk-images
 
 if [ -f "./parsec-img.tar.xz" ]; then
     echo "parsec-img.tar.xz exists"

@@ -400,7 +400,7 @@ def plot_traffic_vol():
   geo_mean_vol = round(np.power(np.prod(repair_norm_traffic), 1.0/len(repair_norm_traffic)),PRECISION)
   repair_norm_traffic.append(geo_mean_vol)
   plot_data(detect_norm_traffic, repair_norm_traffic,  "Normalized on-chip traffic \n(bytes)",
-            "fs-apps-traffic-vol1.pdf")
+            "fs-apps-traffic-vol.pdf")
 
 
 def plot_traffic_count():
@@ -444,7 +444,7 @@ def plot_traffic_count():
   geo_mean_count = round(np.power(np.prod(repair_norm_traffic), 1.0/(len(repair_norm_traffic)-count)),PRECISION)
   repair_norm_traffic.append(geo_mean_count)
   plot_data(detect_norm_traffic, repair_norm_traffic, "Normalized on-chip traffic \n(messages)",
-            "fs-apps-traffic1.pdf")
+            "fs-apps-traffic.pdf")
 
 # TODO: stack plot for using diff energy component 
 # fill energy, cpu2l1d energy, pam energy, sam energy, leakage energy
@@ -508,12 +508,8 @@ def plot_energy():
 
 def main():
   read_csv_file()
-  # print(bench_data)
   plot_time()
-  # plot_traffic_vol()
-  # plot_traffic_count()
   plot_energy() # use different range, so run one at a time
-  # plot_traffic_vol_stack_bar()
 
 if __name__ == "__main__":
   main()

@@ -1,17 +1,22 @@
 #!/bin/bash
 echo  "Initializing the experimental setup "
 
-echo "Creating the output directory"
-cd /home/prospar/prospar-micro-output
+if [ -d $MICRO_OUT ]; then
+    echo "output directory exists"
+else
+    echo "output directory does not exist, creating"
+    mkdir $MICRO_OUT
+fi
+cd $MICRO_OUT
 bash scripts/dir-creation-script.sh
 
 echo "Building the protocols"
-cd /home/prospar/false-sharing-scripts-micro24
+cd $MICRO_SCRIPT
 bash build-protocol-script.sh
 
 echo "Extracting the image files"
-cd /home/prospar/false-sharing-micro24/false-sharing-resources/disk-images
+cd $MICRO_RESOURCE/disk-images
 bash extract-image-file.sh
 
-cd /home/prospar/false-sharing-scripts-micro24
+cd $MICRO_SCRIPT
 echo "Done Setting up the gem5 environment"

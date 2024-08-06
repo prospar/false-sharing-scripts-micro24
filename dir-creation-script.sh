@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Creating directories for micro-results"
-cd /home/prospar/prospar-micro-output
+
+cd $MICRO_OUT
 mkdir micro-baseline-32KB
 mkdir micro-manual-fix
 mkdir micro-introduction
@@ -17,4 +18,4 @@ mkdir micro-sam
 mkdir micro-reader-optimization
 mkdir micro-baseline-40KB
 echo "Directories created for micro-results"
-cd /home/prospar/false-sharing-scripts-micro
+cd $MICRO_SCRIPT

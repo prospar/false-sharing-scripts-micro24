@@ -25,7 +25,7 @@ else
     echo "arg not provided"
 fi
 
-cd /home/prospar/prospar-micro-result/micro-manual-fix
+cd ${MICRO_OUT}/micro-manual-fix
 mv MESI_Nonblocking MESI_Nonblocking_manual
 cd MESI_Nonblocking_manual
 
