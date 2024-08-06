@@ -15,7 +15,6 @@ cd ${MICRO_SCRIPT}
 bash build-protocol-script.sh
 
 echo "Extracting the image files"
-cd ${MICRO_RESOURCE}/disk-images
 bash extract-image-file.sh
 
 cd ${MICRO_SCRIPT}
