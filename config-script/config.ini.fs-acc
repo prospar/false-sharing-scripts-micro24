@@ -61,6 +61,7 @@ REPORT_PC = "--report_pc"
 ALLOW_MULTI_REPORT=--enableMultipleReport
 # use "--disableMDCommOpt" for disabling the MD comm optmization 
 DISABLE_MD_COMM_OPT=--disableMDCommOpt
+BASELINE_PROTOCOL="FS_MESI_DETECTION"
 
 [SCRIPT_PATH]
  CUSTOM="src/spec-2006/configs/run_spec.py"
