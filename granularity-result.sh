@@ -3,7 +3,7 @@
 echo "Script for granularity result"
 
 # && -d "${MICRO_OUT}/micro-granularity-2/FS_MESI_DETECTION"
-if [ -d "${MICRO_OUT}/micro-granularity-2" && -d "${MICRO_OUT}/micro-granularity-32/FS_MESI" ]; then
+if [ -d "${MICRO_OUT}/micro-granularity-2" ] && [ -d "${MICRO_OUT}/micro-granularity-32/FS_MESI" ]; then
     echo "Directories for granularity 2 expeirments exist"
 else
     echo "Running granualrity-2 experiments"
@@ -12,7 +12,7 @@ else
 fi
 
 # && -d "${MICRO_OUT}/micro-granularity-2/FS_MESI_DETECTION"
-if [ -d "${MICRO_OUT}/micro-granularity-4" && -d "${MICRO_OUT}/micro-granularity-4/FS_MESI" ]; then
+if [ -d "${MICRO_OUT}/micro-granularity-4" ] && [ -d "${MICRO_OUT}/micro-granularity-4/FS_MESI" ]; then
     echo "Directories for granularity 4 expeirments exist"
 else
     echo "Run the granularity-4 experiment"

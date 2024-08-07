@@ -2,7 +2,7 @@
 
 echo "Script for fc-ic result"
 
-if [ -d "${MICRO_OUT}/micro-fc-ic-32" && -d "${MICRO_OUT}/micro-fc-ic-32/FS_MESI" ]; then
+if [ -d "${MICRO_OUT}/micro-fc-ic-32" ] && [ -d "${MICRO_OUT}/micro-fc-ic-32/FS_MESI" ]; then
     echo "Directories for fc-ic 32 expeirments exist"
 else
     echo "Run the fc-ic-32 experiments"
@@ -11,7 +11,7 @@ else
 fi
 
 # && -d "${MICRO_OUT}/micro-fc-ic-64"
-if [ -d "${MICRO_OUT}/micro-fc-ic-64" && -d "${MICRO_OUT}/micro-fc-ic-64/FS_MESI" ]; then
+if [ -d "${MICRO_OUT}/micro-fc-ic-64" ] && [ -d "${MICRO_OUT}/micro-fc-ic-64/FS_MESI" ]; then
     echo "Directories for fc-ic 64 experiments exist"
 else
     echo "Running the fc-ic-64 experiments"
@@ -19,7 +19,7 @@ else
     bash false-sharing-fc-ic-script.sh false-sharing-app  repair-detect-protocol 64 $1
 fi
 
-if [ -d "${MICRO_OUT}/micro-false-sharing-app" && -d "${MICRO_OUT}/micro-micro-false-sharing-app/FS_MESI"]; then
+if [ -d "${MICRO_OUT}/micro-false-sharing-app" ] && [ -d "${MICRO_OUT}/micro-micro-false-sharing-app/FS_MESI"]; then
     echo "Directories for FS MESI with granularity 1 exist"
 else
     echo "Running the fslite experiments"

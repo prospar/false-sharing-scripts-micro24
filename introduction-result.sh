@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Script for introduction result"
-if [ -d "${MICRO_OUT}/micro-baseline-32KB" && -d "${MICRO_OUT}/micro-baseline-32KB/MESI_Nonblocking"] ; then
+if [ -d "${MICRO_OUT}/micro-baseline-32KB" ] && [ -d "${MICRO_OUT}/micro-baseline-32KB/MESI_Nonblocking"]; then
     echo "Directories for 32 KB of MESI Nonblocking protocol exist"
 else
     echo "Run the baseline-32KB-script.sh"
@@ -9,7 +9,7 @@ else
     bash baseline-32KB-script.sh false-sharing-app $1
 fi
 
-if [ -d "${MICRO_OUT}/micro-manual-fix" && -d "${MICRO_OUT}/micro-manual-fix/MESI_Nonblocking_manual"] ; then
+if [ -d "${MICRO_OUT}/micro-manual-fix" ] && [ -d "${MICRO_OUT}/micro-manual-fix/MESI_Nonblocking_manual"]; then
     echo "Directories for manual fix of MESI Nonblocking protocol exist"
 else
     echo "Running the manual-fix-script.sh"

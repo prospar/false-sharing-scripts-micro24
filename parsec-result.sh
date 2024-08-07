@@ -3,7 +3,7 @@
 echo "Script for generating fig 15 of the paper : PARSEC result "
 
 # && -d "${MICRO_OUT}/micro-parsec/FS_MESI_DETECTION"
-if [ -d "${MICRO_OUT}/micro-parsec" && -d "${MICRO_OUT}/micro-parsec/FS_MESI" && -d "${MICRO_OUT}/micro-parsec/MESI_Nonblocking" ] ; then
+if [ -d "${MICRO_OUT}/micro-parsec" ] && [ -d "${MICRO_OUT}/micro-parsec/FS_MESI" ] && [ -d "${MICRO_OUT}/micro-parsec/MESI_Nonblocking" ]; then
     echo "Directories for parsec result of all three protcol exist"
 else
     echo "Run the false-sharing-app-script.sh"
