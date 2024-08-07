@@ -290,3 +290,6 @@ class CFGParser(Constants):
     
     def returnLinuxKernelPath(self) -> str:
         return self._config["KERNEL_PATH"]["KERNEL"]
+    
+    def getBaselineProtocol(self) -> str:
+        return self._config["FS"]["BASELINE_PROTOCOL"]

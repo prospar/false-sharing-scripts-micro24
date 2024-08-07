@@ -36,11 +36,9 @@ class CmdLineParser():
     _allowedWorkloadSizes = ["test", "small", "medium", "large", "huge"]
 
     # FalseSharing:
-    _allowedWorkloadTypes = ["spec", "parsec", "npb", "gap", "custom"]
+    _allowedWorkloadTypes = ["parsec", "custom"]
     _allowedFSWorkloadSize = [
-        "parsec: simsmall, simmedium, simlarge", "spec: ref, test, train",
-        "phoenix: size hardcoded in image", "custom: hardcoded in image", "gap: hardcoded in image",
-        "nas: S,A,B,C"
+        "parsec: simsmall, simmedium, simlarge", "custom: mapping in image",
     ]
 
     def __init__(self):
@@ -144,11 +142,7 @@ class CmdLineParser():
                         not benchmarks.isHuronBenchmark(bench) and
                         not benchmarks.isMicroBenchmark(bench) and
                         not benchmarks.isPARSECBenchmark(bench) and
-                        not benchmarks.isPHOENIXBenchmark(bench) and
-                        not benchmarks.isSYNCHROBENCHBenchmark(bench) and
-                        not benchmarks.isNPBBenchmark(bench) and
-                        not benchmarks.isGAPBenchmark(bench) and
-                        not benchmarks.isSPECBenchmark(bench)):
+                        not benchmarks.isSYNCHROBENCHBenchmark(bench)):
                     utils.raise_error(f"{bench} is not a valid benchmark!")
 
             prot: str = options.getProtocol()

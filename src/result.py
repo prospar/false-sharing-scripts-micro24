@@ -336,6 +336,8 @@ def _generateAbsPlot(options, workingRS: list, benchmarks: List[str], protocols:
 
     di_baseline: dict = {}
     di_baseline[stats.KEY_PROTOCOL] = Constants.BASELINE_PROT_NAME
+    cfgObj = options.getConfig()
+    di_baseline[stats.KEY_PROTOCOL] = cfgObj.getBaselineProtocol()
 
     for key in stats.ALL_STATS_KEYS:
         li_y_labels = []
@@ -414,7 +416,9 @@ def _generateNormPlot(options, workingRS, benchmarks, protocols, num_trials):
     # ordered_tools_names = _getOrderedProtocolNames(tools)
 
     di_baseline = {}
-    _baseline_prot = Constants.BASELINE_PROT_NAME
+    cfgObj = options.getConfig()
+    # _baseline_prot = Constants.BASELINE_PROT_NAME
+    _baseline_prot = cfgObj.getBaselineProtocol()
     di_baseline[stats.KEY_PROTOCOL] = _baseline_prot
 
     for key in stats.ALL_STATS_KEYS:
