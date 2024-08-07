@@ -42,4 +42,4 @@ cp ${MICRO_RESOURCE}/scripts/config.ini.fc-ic-32 config.ini
 python3 src/main.py --tasks result ---verbose 1 --protocol FS_MESI --outputDir micro-fc-ic-output
 
 # insert the call to script for plot generation
-# python3 src/graph_plotting_script/intro-plot.py
+python3 src/graph_plotting_script/plot-fcic-study.py "${MICRO_RES}/micro-fc-ic-ouptut/Stats_Avg.csv"
