@@ -22,7 +22,7 @@ class CFGParser(Constants):
                                            "L1I_ASSOC", "L1I_SIZE", "L2_ASSOC", "OPT_READERS",
                                            "CPU_FREQ", "CLK_FREQ", "DRAM_TYPE", "REPORT_PC",
                                            "ALLOW_MULTI_REPORT", "DISABLE_MD_COMM_OPT",
-                                           "SATURATION_THRESHOLD", "HYSTERESIS_THRESHOLD")
+                                           "SATURATION_THRESHOLD", "HYSTERESIS_THRESHOLD", "BASELINE_PROTOCOL")
     _tup_allowedDiskKeys: Tuple[str, str, str, str, str] = ("CUSTOM", "PARSEC", "SPEC", "NPB",  "GAP")
 
     _CUSTOM_BM_SHORTHAND = [
