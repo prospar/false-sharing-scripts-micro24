@@ -64,6 +64,7 @@ EMAIL = prospar@cse.iitk.ac.in
  ALLOW_MULTI_REPORT=
  # use "--disableMDCommOpt" for disabling the MD comm optmization 
  DISABLE_MD_COMM_OPT=
+ BASELINE_PROTOCOL="MESI_Nonblocking"
 
 [SCRIPT_PATH]
  CUSTOM="src/spec-2006/configs/run_spec.py"

@@ -5,7 +5,7 @@ if [ -d "${MICRO_OUT}/micro-baseline-32KB" && -d "${MICRO_OUT}/micro-baseline-32
     echo "Directories for 32 KB of MESI Nonblocking protocol exist"
 else
     echo "Run the baseline-32KB-script.sh"
-    cp config/config.ini.32KB config.ini
+    cp config-script/config.ini.32KB config.ini
     bash baseline-32KB-script.sh false-sharing-app $1
 fi
 
