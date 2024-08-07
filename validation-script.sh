@@ -52,7 +52,7 @@ else
     mkdir /home/prospar/prospar-micro-result
 fi
 
-echo "Direcotry structure is valid...."
+echo "Directory structure is valid...."
 
 perf_val=$(cat /proc/sys/kernel/perf_event_paranoid)
 # check if perf_event_paranoid is set to -1

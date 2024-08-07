@@ -6,7 +6,6 @@ if [ -d "${MICRO_OUT}/micro-baseline-32KB" && -d "${MICRO_OUT}/micro-baseline-32
 else
     echo "Run the baseline-32KB-script.sh"
     cp config/config.ini.32KB config.ini
-    cp scripts/baseline-32KB-script.sh .
     bash baseline-32KB-script.sh false-sharing-app $1
 fi
 
@@ -14,7 +13,6 @@ if [ -d "${MICRO_OUT}/micro-manual-fix" && -d "${MICRO_OUT}/micro-manual-fix/MES
     echo "Directories for manual fix of MESI Nonblocking protocol exist"
 else
     echo "Running the manual-fix-script.sh"
-    cp scripts/manual-fix-script.sh .
     bash manual-fix-script.sh manualfix-false-sharing-app $1
 fi
 
