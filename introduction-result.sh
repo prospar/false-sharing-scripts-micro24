@@ -5,7 +5,7 @@ if [ -d "${MICRO_OUT}/micro-baseline-32KB" && -d "${MICRO_OUT}/micro-baseline-32
     echo "Directories for 32 KB of MESI Nonblocking protocol exist"
 else
     echo "Run the baseline-32KB-script.sh"
-    cp config-script/config.ini.32KB config.ini
+    cp ${MICRO_SCRIPT}/config-script/config.ini.32KB ${MICRO_SCRIPT}/config.ini
     bash baseline-32KB-script.sh false-sharing-app $1
 fi
 
@@ -20,7 +20,7 @@ fi
 cp -r ${MICRO_OUT}/micro-baseline-32KB/MESI_Nonblocking ${MICRO_OUT}/micro-manual-fix/MESI_Nonblocking
 
 # generate the intermediate results for plots
-python3 src/main.py --tasks result --trials 1 --bench huron-false-sharing --verbose 1 --protocol MESI_Nonblocking --workloadSize small  --outputDir micro-manual-fix --benchmark_type custom
+python3 src/main.py --tasks result --verbose 1 --outputDir micro-manual-fix
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/intro-plot.py /home/prospar/prospar-micro-result/micro-manual-fix/Stats_Avg.csv
+python3 src/graph_plotting_script/intro-plot.py ${MICRO_RES}/micro-manual-fix/Stats_Avg.csv

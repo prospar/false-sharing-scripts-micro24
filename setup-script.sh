@@ -8,7 +8,7 @@ else
     mkdir ${MICRO_OUT}
 fi
 cd ${MICRO_OUT}
-bash scripts/dir-creation-script.sh
+bash ${MICRO_SCRIPT}/dir-creation-script.sh
 
 echo "Building the protocols"
 cd ${MICRO_SCRIPT}
