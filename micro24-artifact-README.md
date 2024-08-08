@@ -209,15 +209,17 @@ Our scripts will parse the output results and plot the graphs automatically. All
 
 TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the output PDF files.
 
-# Reproducing Figure 14
+### Reproducing Figure 14 (applications with false sharing)
 
 - `bash primary-result.sh 1`
 - The files `fs-apps-runtime.pdf` and `fs-apps-energy.pdf` will be generated in the `graph_plotting_script` folder.
 
-# Reproducing Figure 15 (applications without false sharing)
+### Reproducing Figure 15 (applications without false sharing)
 
 - `bash parsec-result.sh 1`
 - The file `plot-parsec-runtime-energy.pdf` will be generated in the `graph_plotting_script` folder.
 
- <In progress>
- - Reproducing the
+ <!-- In progress -->
+### Reproducing the Figure 16
+- `bash fc-ic-result.sh 1`
+- The file `plot-fc-ic-runtime.pdf` will be generated in the `graph_plotting_script` folder
