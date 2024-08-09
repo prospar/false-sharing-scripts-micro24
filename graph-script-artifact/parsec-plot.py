@@ -308,7 +308,7 @@ def plot_time_energy():
   geomean = np.prod(repair_norm_energy) ** (1.0 / len(repair_norm_energy))
   repair_norm_energy.append(round(geomean,PRECISION))
 
-  plot_time_energy_data(repair_norm_times, repair_norm_energy, "--", "plot-parsec-runtime-energy.pdf")
+  plot_time_energy_data(repair_norm_times, repair_norm_energy, "--", "figure-15-runtime-energy.pdf")
 
 
 

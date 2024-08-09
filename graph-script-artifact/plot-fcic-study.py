@@ -255,7 +255,7 @@ def plot_time():
   fc32_norm_times.append(geo_mean_time)
   geo_mean_time = round(np.power(np.prod(fc64_norm_times), 1.0/len(fc64_norm_times)),PRECISION) 
   fc64_norm_times.append(geo_mean_time)
-  plot_data(fc32_norm_times, fc64_norm_times, "Speedup", "fcic-run-time.pdf")
+  plot_data(fc32_norm_times, fc64_norm_times, "Speedup", "figure-16-run-time.pdf")
 
 
 def plot_traffic_vol():
@@ -287,7 +287,7 @@ def plot_traffic_vol():
   geo_mean_vol = round(np.power(np.prod(fc64_norm_traffic), 1.0/len(fc64_norm_traffic)),PRECISION)
   fc64_norm_traffic.append(geo_mean_vol)
   plot_data(fc32_norm_traffic, fc64_norm_traffic,  "Normalized on-chip traffic \n(bytes)",
-            "fcic-traffic-vol.pdf", True)
+            "figure-16-traffic-vol.pdf", True)
 
 
 def plot_traffic_count():
@@ -319,7 +319,7 @@ def plot_traffic_count():
   geo_mean_count = round(np.power(np.prod(fc64_norm_traffic), 1.0/len(fc64_norm_traffic)),PRECISION)
   fc64_norm_traffic.append(geo_mean_count)
   plot_data(fc32_norm_traffic, fc64_norm_traffic, "Normalized on-chip traffic \n(messages)",
-            "fcic-traffic.pdf")
+            "figure-16-traffic.pdf")
 
 # TODO: stack plot for using diff energy component 
 # fill energy, cpu2l1d energy, pam energy, sam energy, leakage energy
@@ -378,7 +378,7 @@ def plot_energy():
   fc64_norm_energy.append(geo_mean_energy)
   fs_norm_energy.append(1.0)
 
-  plot_data(fc32_norm_energy, fc64_norm_energy, "Normalized energy usage", "fcic-energy.pdf")
+  plot_data(fc32_norm_energy, fc64_norm_energy, "Normalized energy usage", "figure-16-energy.pdf")
 
 
 

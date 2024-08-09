@@ -251,7 +251,7 @@ def plot_time():
                         PRECISION)
   fs_norm_times.append(1.0)
   man_fix_norm_times.append(geo_mean_time)
-  plot_data(fs_norm_times, man_fix_norm_times, "Speedup", "plot-run-time-introduction.pdf")
+  plot_data(fs_norm_times, man_fix_norm_times, "Speedup", "figure-2-runtime.pdf")
 
 
 def plot_traffic_vol():
@@ -273,7 +273,7 @@ def plot_traffic_vol():
   fs_norm_traffic.append(1.0)
   man_fix_norm_traffic.append(geo_mean_vol)
   plot_data(fs_norm_traffic, man_fix_norm_traffic, "Normalized on-chip traffic \n(bytes)",
-            "plot-traffic-vol-introduction.pdf", True)
+            "figure-2-traffic-vol.pdf", True)
 
 
 def plot_traffic_count():
@@ -302,7 +302,7 @@ def plot_traffic_count():
   fs_norm_traffic.append(1.0)
   man_fix_norm_traffic.append(geo_mean_count)
   plot_data(fs_norm_traffic, man_fix_norm_traffic, "Normalized on-chip traffic \n(messages)",
-            "plot-traffic-count-introduction.pdf")
+            "fiogure-2-traffic-count.pdf")
 
 
 # TODO: stack plot for using diff energy component
@@ -341,7 +341,7 @@ def plot_energy():
                           PRECISION)
   fs_norm_energy.append(1.0)
   man_fix_norm_energy.append(geo_mean_energy)
-  plot_data(fs_norm_energy, man_fix_norm_energy, "Normalized energy usage", "plot-energy-introduction.pdf")
+  plot_data(fs_norm_energy, man_fix_norm_energy, "Normalized energy usage", "figure-2-energy.pdf")
   #TODO: add code for stack plot
 
 

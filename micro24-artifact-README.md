@@ -194,7 +194,7 @@ We are now ready to run experiments and reproduce results.
 
 ## Running Experiments
 
-Each script takes the number of iterations as an input argument. We suggest using the number of iterations as 1 for the initial validation. A single iteration takes a minimum of 4 weeks to generate all results if launched on a single docker instance.
+Each script takes the number of iterations as an input argument. We suggest using the number of iterations as 1 for the initial validation. A single iteration takes a minimum of 5-6 weeks to generate all results if launched on a single docker instance.
 
 `bash <script_name> <number_of_trial>`
 
@@ -202,24 +202,72 @@ Please note that the results reported in the paper are an average of 3 iteration
 
 Our scripts will parse the output results and plot the graphs automatically. All the generated plots will be in the `graph_plotting_script` directory.
 
+For a quick validation of result, reproducing `Fig 2` (motivation), `Fig 14` (applications with false sharing), and `Fig 15` (applications without false sharing) is advised.
+
+### Expected runtime for different applications with MESI Baseline protocol
+
+| Applications  |Runtime(in hr)| False Sharing |
+|---------------|:------------:|--------------:|
+| Blackscholes  |  4    |  No  |
+| Bodytrack     |  12   |  No  |
+| Canneal       |  5    |  No  |
+| Facesim       |  24   |  No  |
+| Fluidanimate  |  12   |  No  |
+| Swaptions     |  26   |  No  |
+| Streamcluster |  30   |  Yes |
+| Linear-reg    |  10   |  Yes |
+| String-match  |  6    |  Yes |
+| Locked-toy    |  18   |  Yes |
+| Ref-count     |  14   |  Yes |
+| ESTM-sftree   |  18   |  Yes |
+| Boost-spinlock|  12   |  Yes |
+| Lockless-toy  |  34   |  Yes |
+| Total time    | 215   |      |
+
+
+> The total runtime for single iteration of all listed applications for MESI baseline protocol will take around **9 days**<br>
+> The runtime for *FSDetect* protocol is similar to MESI Baseline protocol<br>
+> The runtime for *FSLite* protocol will lower compared to MESI Baseline and depend on the amount of false sharing, e.g., PARSEC applications will have similar runtime to MESI baseline due to no and negligible amount of false sharing.
+
+
 ### Reproducing Figure 2 (motivation)
 
 - `bash introduction-result.sh 1`
-- The file `plot-runtime-introduction.pdf` should be generated in the `graph_plotting_script` folder.
+- The script will take around **11 days** to complete
+- The file `figure2-runtime.pdf` should be generated in the `graph_plotting_script` folder.
 
 TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the output PDF files.
 
+### Reproducing Figure 13 (Characterization of L1misses into false sharing and non-false-sharing misses)
+- `bash false-sharing-classification.sh <number_of_iteration>`
+- The experiments of `Figure 13` will generate around **66GB** of log files for a single iteration, Therefore it is advised to run the experiment with sufficient space in the device root partition.
+- The script will take around **6-7 days** to complete 
+- The plot `figure-13.pdf` will be generated in the `graph_plotting_script` folder.
+
 ### Reproducing Figure 14 (applications with false sharing)
 
-- `bash primary-result.sh 1`
-- The files `fs-apps-runtime.pdf` and `fs-apps-energy.pdf` will be generated in the `graph_plotting_script` folder.
+- `bash primary-result.sh <number_of_iteration>`
+- The script will take around **13 days** to complete
+- The files `figure-14-runtime.pdf` and `figure-14-energy.pdf` will be generated in the `graph_plotting_script` folder.
 
 ### Reproducing Figure 15 (applications without false sharing)
 
 - `bash parsec-result.sh 1`
-- The file `plot-parsec-runtime-energy.pdf` will be generated in the `graph_plotting_script` folder.
+- The script will take around **10 days** to complete
+- The plot `figure-15-runtime-energy.pdf` will be generated in the `graph_plotting_script` folder.
 
  <!-- In progress -->
 ### Reproducing the Figure 16
-- `bash fc-ic-result.sh 1`
-- The file `plot-fc-ic-runtime.pdf` will be generated in the `graph_plotting_script` folder
+- `bash fc-ic-result.sh <number_of_iteration>`
+- The plot `figure-16-runtime.pdf` will be generated in the `graph_plotting_script` folder
+
+### Verifying the claim for granularity
+ - `bash granularity-result.sh <number_of_iteration>`
+ - The script will take around 4 days 
+ - The plot `granularity-runtime.pdf` will be generated in the `graph_plotting_script` folder
+
+### Verifying the claim for 40KB baseline
+ - `bash micro baseline-40KB-script.sh <num_of_iteration>`
+ - A single iteration will take around 9 days to complete
+ - The graph `` 
+
