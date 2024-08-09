@@ -259,15 +259,16 @@ TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the o
  <!-- In progress -->
 ### Reproducing the Figure 16
 - `bash fc-ic-result.sh <number_of_iteration>`
+- A single iteration will take around **12 days** to complete
 - The plot `figure-16-runtime.pdf` will be generated in the `graph_plotting_script` folder
 
 ### Verifying the claim for granularity
  - `bash granularity-result.sh <number_of_iteration>`
- - The script will take around 4 days 
+ - A single iteration will take around **12 days** to complete 
  - The plot `granularity-runtime.pdf` will be generated in the `graph_plotting_script` folder
 
 ### Verifying the claim for 40KB baseline
  - `bash micro baseline-40KB-script.sh <num_of_iteration>`
- - A single iteration will take around 9 days to complete
+ - A single iteration will take around **9 days** to complete
  - The graph `` 
 
