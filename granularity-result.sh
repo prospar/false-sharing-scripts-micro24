@@ -29,8 +29,8 @@ fi
 
 
 # copy the baseline result to manual fix output directory
-cp -r ${MICRO_OUT}/micro-granularity-2/FS_MESI ${MICRO_OUT}/micro-granularity-output/FS_MESI_2
-cp -r ${MICRO_OUT}/micro-granularity-4/FS_MESI ${MICRO_OUT}/micro-granularity-output/FS_MESI_4
+cp -r ${MICRO_OUT}/micro-granularity-2/FS_MESI ${MICRO_OUT}/micro-granularity-output/FS_MESI_gran2
+cp -r ${MICRO_OUT}/micro-granularity-4/FS_MESI ${MICRO_OUT}/micro-granularity-output/FS_MESI_gran4
 if [ -d ${MICRO_OUT}/micro-false-sharing-app/FS_MESI ]; then 
     echo "False Sharing app result with granularity 1 exists"
 else
