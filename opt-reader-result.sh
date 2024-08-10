@@ -6,7 +6,7 @@ if [ -d "${MICRO_OUT}/micro-reader-optimization" ] && [ -d "${MICRO_OUT}/micro-r
     echo "Directories for fc-ic 32 expeirments exist"
 else
     echo "Running the sam 256 experiments"
-    cp ${MICRO_SCRIPT}/config-script/config.ini.sam256 ${MICRO_SCRIPT}/config.ini
+    cp ${MICRO_SCRIPT}/config-script/config.ini.opt-reader ${MICRO_SCRIPT}/config.ini
     bash false-sharing-app-sam-script.sh false-sharing-app fslite ${1}
 fi
 
@@ -28,7 +28,7 @@ do
     rm -rf ${MICRO_OUT}/micro-reader-optimization/FS_MESI/large/${i}/streamcluster
 done
 
-cp ${MICRO_SCRIPT}/config-script/config.ini.sam256 ${MICRO_SCRIPT}/config.ini
+cp ${MICRO_SCRIPT}/config-script/config.ini.opt-reader ${MICRO_SCRIPT}/config.ini
 # generate the intermediate results for plots
 python3 src/main.py --tasks result ---verbose 1 --protocol FS_MESI --outputDir micro-reader-optimization
 
