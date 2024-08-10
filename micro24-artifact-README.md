@@ -119,6 +119,13 @@ Use the following commands to connect to and manage an existing container. Pleas
 
 ## Source Code
 
+The source code of our implementation is publicly available on the [GitHub](git@github.com:prospar/false-sharing-micro24.git).
+
+[Gem5-resources](https://gem5.googlesource.com/public/gem5-resources/+/refs/tags/v20.0.0.3) Our approach uses the tag v20.0.3 of the gem5-resources for running application in the FS mode of Gem5. The scripts are modified to support the Ring network topology and the different configuration parameters. The modified resources are available in the GitHub repo(specified above) under `false-sharing-resources` folder. 
+
+A framework is developed to automate the execution of the experiments and plotting of the graphs. The framework can be accessed through
+
+
 The `/root/.bashrc` file defines a few environment variables for convenience, and it should already be added in `docker` container. Please add the following snippet to `/root/.bashrc` if not already present.
 
 ```bash
