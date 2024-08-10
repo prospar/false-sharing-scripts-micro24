@@ -257,7 +257,7 @@ TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the o
 - The plot `figure-15-runtime-energy.pdf` will be generated in the `graph_plotting_script` folder.
 
  <!-- In progress -->
-### Reproducing the Figure 16
+### Reproducing the Figure 16 (FC-IC exploration)
 - `bash fc-ic-result.sh <number_of_iteration>`
 - A single iteration will take around **12 days** to complete
 - The plot `figure-16-runtime.pdf` will be generated in the `graph_plotting_script` folder
@@ -272,3 +272,7 @@ TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the o
  - A single iteration will take around **9 days** to complete
  - The graph `` 
 
+### Verifying the claim for SAM256
+ - `bash sam-result.sh <number_of_iteration>`
+ - A single iteration will take around 
+ - The plot `plot-sam-run-time.pdf` will be generated in the `graph_plotting_script`

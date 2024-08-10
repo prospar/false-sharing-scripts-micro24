@@ -1,6 +1,5 @@
-# This script is for generating plots in the introduction for our ASPLOS24 submission.
-# python3 src/main.py --tasks result --verbose 1 --outputDir asplos24-intro
-# python3 sb-intro-asplos24.py
+# This script is for generating plots in the introduction for our MICRO24 submission.
+
 # NOTE: Remember to update PATH_CSV if we have new data
 
 import csv
