@@ -23,4 +23,4 @@ cp -r ${MICRO_OUT}/micro-baseline-32KB/MESI_Nonblocking ${MICRO_OUT}/micro-manua
 python3 src/main.py --tasks result --verbose 1 --outputDir micro-manual-fix
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/intro-plot.py ${MICRO_RES}/micro-manual-fix/Stats_Avg.csv
+python3 graph_script_artifact/intro-plot.py ${MICRO_RES}/micro-manual-fix/Stats_Avg.csv

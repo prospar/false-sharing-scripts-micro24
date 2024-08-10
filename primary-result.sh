@@ -27,5 +27,5 @@ python3 src/main.py --tasks result --verbose 1 --protocol MESI_Nonblocking --out
 
 # insert the call to script for plot generation
 # TODO: check the below command, add two diff func call one for energy and one for performance
-python3 src/graph_plotting_script/eval-fs-app.py ${MICRO_RES}/micro-false-sharing-app/Stats_Avg.csv
+python3 graph_script_artifact/eval-fs-app.py ${MICRO_RES}/micro-false-sharing-app/Stats_Avg.csv
 echo "Primary result and fig script completed in graph plotting script folder"

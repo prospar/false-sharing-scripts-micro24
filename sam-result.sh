@@ -33,4 +33,4 @@ cp ${MICRO_SCRIPT}/config-script/config.ini.sam256 ${MICRO_SCRIPT}/config.ini
 python3 src/main.py --tasks result ---verbose 1 --protocol FS_MESI --outputDir micro-sam
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/plot-sam-study.py "${MICRO_RES}/micro-sam/Stats_Avg.csv"
+python3 graph_script_artifact/plot-sam-study.py "${MICRO_RES}/micro-sam/Stats_Avg.csv"

@@ -16,5 +16,5 @@ python3 src/main.py --tasks result --bench huron-false-sharing --verbose 1 --pro
 
 # insert the call to script for plot generation
 # TODO: check the below command, add two diff func call one for energy and one for performance
-python3 src/graph_plotting_script/parsec-plot.py ${MICRO_RES}/micro-parsec/Stats_Avg.csv
+python3 graph_script_artifact/parsec-plot.py ${MICRO_RES}/micro-parsec/Stats_Avg.csv
 echo "Parsec result and fig script completed in graph plotting script folder"

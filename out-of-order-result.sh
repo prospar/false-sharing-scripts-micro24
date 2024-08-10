@@ -39,5 +39,5 @@ fi
 python3 src/main.py --tasks result --verbose 1 --protocol MESI_Nonblocking --outputDir micro-ooo-comparsion --benchmark_type custom
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/plot-ooo-comparison.py ${MICRO_RES}/micro-ooo-comparison/Stats_Avg.csv
+python3 graph_script_artifact/plot-ooo-comparison.py ${MICRO_RES}/micro-ooo-comparison/Stats_Avg.csv
 echo "Out-of-order result completed"

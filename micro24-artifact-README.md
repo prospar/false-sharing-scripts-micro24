@@ -126,6 +126,7 @@ export FS_FRAMEWORK="/home/prospar/false-sharing-scripts-micro24"
 export MICRO_VIR_ENV="/home/prospar/micro-virtualenv"
 export MICRO_GEM5="/home/prospar/micro-virtualenv/false-sharing-micro24/gem5-false-sharing"
 export MICRO_RESOURCE="/home/prospar/micro-virtualenv/false-sharing-micro24/false-sharing-resources"
+export MICRO_BENCH="/home/prospar/micro-virtualenv/false-sharing-micro24/false-sharing-benchmarks"
 export MICRO_OUT="/home/prospar/prospar-micro-output"
 export MICRO_RES="/home/prospar/prospar-micro-result"
 export MICRO_SCRIPT="/home/prospar/false-sharing-scripts-micro24"
@@ -148,30 +149,10 @@ Navigate to the `prospar` directory in the docker container: `cd /home/prospar`.
   |__ false-sharing-resources : contains the execution script and disk image
   |__ false-sharing-benchmarks: contains the benchmarks used in our study -->
 
-
-## Building Benchmarks
-
-This step is only required for reproducing the SE mode result (Section XX and Figures YY and ZZ).
-You can skip this step for FS mode results because we have pre-built the benchmarks abd provided the image `custom-vm`.
-
-TODO: SB: Did I get the above paragraph right?
-Yes, FS mode use custom-vm image
-
-```shell
-cd ${MICRO_VIR_ENV}/false-sharing-benchmarks
-mkdir -p build && cd build
-cmake -DSE_MODE=true ..
-cmake --build .
-```
-
-TODO: SB: I do not see `false-sharing-benchmarks` directory. We can put this section later when we talk about reproducing OOO results.
-Updated the path for false sharing benchmarks directory
-
 ## Building Gem5 Source
 
 The docker image should contain all necessary source and input files. Please use the AE discussion to report an issue in case of any problems.
 
-TODO: SB: Where do we raise an issue?
 Artifact committee can communicate through AE website discussion forum. Later we can modify the instruction, saying `Drop an email to one of the authors`
 
 ```shell
@@ -185,7 +166,7 @@ bash validation-script.sh
 # Build the necessary directories and protocols in Gem5, extract the tar image
 bash setup-script.sh
 
-# The setup might take up to 5-6 hours to complete. Building each protocol for the first time might take an hour, and extracting images might take up to 2 hours.
+# The setup script will take up to 6 hours to complete. Building each protocol for the first time might take an hour, and extracting images might take up to 2 hours.
 ```
 
 The container will consume around 80GB of space after building the source: 10 GB for each protocol, 30 GB for 3 protocols, and 50GB for the extracted images.
@@ -200,7 +181,7 @@ Each script takes the number of iterations as an input argument. We suggest usin
 
 Please note that the results reported in the paper are an average of 3 iterations. A single iteration may result in a variation of 5% for each experiment.
 
-Our scripts will parse the output results and plot the graphs automatically. All the generated plots will be in the `graph_plotting_script` directory.
+Our scripts will parse the output results and plot the graphs automatically.
 
 For a quick validation of result, reproducing `Fig 2` (motivation), `Fig 14` (applications with false sharing), and `Fig 15` (applications without false sharing) is advised.
 
@@ -227,19 +208,20 @@ For a quick validation of result, reproducing `Fig 2` (motivation), `Fig 14` (ap
 
 > The total runtime for single iteration of all listed applications for MESI baseline protocol will take around **9 days**<br>
 > The runtime for *FSDetect* protocol is similar to MESI Baseline protocol<br>
-> The runtime for *FSLite* protocol will be lesser compared to MESI Baseline and depend on the amount of false sharing, e.g., PARSEC applications will have similar runtime to MESI baseline due to no and negligible amount of false sharing.
+> The runtime for *FSLite* protocol will be lesser compared to MESI Baseline and depend on the amount of false sharing, e.g., PARSEC applications will have similar runtime to MESI baseline due to no and negligible amount of false sharing. <br>
 
 ### Important Figure
 
- > The figure 2, 14, and 15 are the primary result of our paper.<br>
+ > The *figure 2, 14, and 15* are the primary result of our paper.<br>
  > The artifact also includes script for figure 13, 17 and various optimization exploration discussed in the evaluation section(**VIII-B**) of the paper. 
-
+ > The figures used in the paper are provided in the **`/home/prospar/false-sharing-micro24-scripts/src/reference_plots`** folder
+ > The directory **`/home/prospar/false-sharing-micro24-scripts`** will contain all the generated plots 
 
 ### Reproducing Figure 2 (motivation)
 
 - `bash introduction-result.sh <number_of_iteration>`
 - The script will take around **9 days** to complete for a  single iteration 
-- The file `figure2-runtime.pdf` should be generated in the `graph_plotting_script` folder.
+- The file `figure2-runtime.pdf` should be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder.
 
 TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the output PDF files.
 
@@ -247,42 +229,53 @@ TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the o
 - `bash false-sharing-classification.sh <number_of_iteration>`
 - The experiments of `Figure 13` will generate around **66GB** of log files for a single iteration, Therefore it is advised to run the experiment with sufficient space in the device root partition.
 - The script will take around **6-7 days** to complete 
-- The plot `figure-13.pdf` will be generated in the `graph_plotting_script` folder.
+- The plot `figure-13.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder.
 
 ### Reproducing Figure 14 (applications with false sharing)
 
 - `bash primary-result.sh <number_of_iteration>`
 - The script will take around **13 days** to complete
-- The files `figure-14-runtime.pdf` and `figure-14-energy.pdf` will be generated in the `graph_plotting_script` folder.
+- The files `figure-14-runtime.pdf` and `figure-14-energy.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder.
 
 ### Reproducing Figure 15 (applications without false sharing)
 
 - `bash parsec-result.sh 1`
 - The script will take around **10 days** to complete
-- The plot `figure-15-runtime-energy.pdf` will be generated in the `graph_plotting_script` folder.
+- The plot `figure-15-runtime-energy.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder.
 
  <!-- In progress -->
 ### Reproducing the Figure 16 (FC-IC exploration)
 - `bash fc-ic-result.sh <number_of_iteration>`
 - A single iteration will take around **12 days** to complete
-- The plot `figure-16-runtime.pdf` will be generated in the `graph_plotting_script` folder
+- The plot `figure-16-runtime.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder
 
 ### Verifying the claim for granularity
  - `bash granularity-result.sh <number_of_iteration>`
  - A single iteration will take around **12 days** to complete 
- - The plot `figure-granularity-runtime.pdf` will be generated in the `graph_plotting_script` folder
+ - The plot `figure-granularity-runtime.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder
 
 ### Verifying the claim for SAM256
  - `bash sam-result.sh <number_of_iteration>`
  - A single iteration will take around **9 days** to complete
- - The plot `figure-sam-run-time.pdf` will be generated in the `graph_plotting_script`
+ - The plot `figure-sam-run-time.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder
 
 ### Verifying the claim for Optimized reader
  - `bash opt-reader-result.sh <number_of_iteration>`
  - A single iteration will take around **9 days** to complete
- - The plot `figure-opt-reader-run-time.pdf` will be generated in the `graph_plotting_script`
+ - The plot `figure-opt-reader-run-time.pdf` will be generated in the **`/home/prospar/false-sharing-micro24-scripts`** folder
 
 ### Verifying the claim for 40KB baseline
  - `bash micro baseline-40KB-script.sh <num_of_iteration>`
  - A single iteration will take around **18 days** to complete
- - The graph `` 
+ - The graph `figure-baseline-40KB-runtime.pdf` will be generated in the  **`/home/prospar/false-sharing-micro24-scripts`**
+
+
+### Verifying the claim for Out-of-order core
+- Build the false-sharing benchmarks
+```shell
+cd ${MICRO_VIR_ENV}/false-sharing-micro24/false-sharing-benchmarks
+mkdir -p build && cd build
+cmake -DSE_MODE=true ..
+cmake --build .
+```
+

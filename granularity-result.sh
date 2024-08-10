@@ -46,4 +46,4 @@ cp -r ${MICRO_OUT}/micro-false-sharing-app/FS_MESI ${MICRO_OUT}/micro-granularit
 python3 src/main.py --tasks result --verbose 1 --protocol FS_MESI --outputDir micro-granularity-output
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/plot-granularity-study.py "${MICRO_RES}/micro-granularity-output/Stats_Avg.csv"
+python3 graph_script_artifact/plot-granularity-study.py "${MICRO_RES}/micro-granularity-output/Stats_Avg.csv"
