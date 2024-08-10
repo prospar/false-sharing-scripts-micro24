@@ -33,4 +33,4 @@ cp ${MICRO_SCRIPT}/config-script/config.ini.opt-reader ${MICRO_SCRIPT}/config.in
 python3 src/main.py --tasks result ---verbose 1 --protocol FS_MESI --outputDir micro-reader-optimization
 
 # insert the call to script for plot generation
-python3 src/graph_plotting_script/plot-opt-reader-study.py "${MICRO_RES}/micro-reader-optimization/Stats_Avg.csv"
+python3 src/graph_script_artifact/plot-opt-reader-study.py "${MICRO_RES}/micro-reader-optimization/Stats_Avg.csv"
