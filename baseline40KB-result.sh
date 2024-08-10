@@ -9,12 +9,12 @@ else
     bash baseline-32KB-script.sh false-sharing-app $1
 fi
 
-if [ -d "${MICRO_OUT}/micro-baseline-32KB" ] && [ -d "${MICRO_OUT}/micro-baseline-32KB/MESI_Nonblocking" ]; then
-    echo "Directories for 32 KB of MESI Nonblocking protocol exist"
+if [ -d "${MICRO_OUT}/micro-baseline-40KB" ] && [ -d "${MICRO_OUT}/micro-baseline-40KB/MESI_Nonblocking" ]; then
+    echo "Directories for 40 KB of MESI Nonblocking protocol exist"
 else
-    echo "Run the baseline-32KB-script.sh"
+    echo "Run the baseline-40KB-script.sh"
     cp ${MICRO_SCRIPT}/config-script/config.ini.40KB ${MICRO_SCRIPT}/config.ini
-    bash baseline-32KB-script.sh false-sharing-app $1
+    bash baseline-40KB-script.sh false-sharing-app $1
 fi
 
 

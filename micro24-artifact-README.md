@@ -138,9 +138,9 @@ Navigate to the `prospar` directory in the docker container: `cd /home/prospar`.
   |___ cmake-3.18.4
   |___ micro-virtualenv(contains the source code and resources)
   |    |___ false-sharing-micro24
-  |            |__ gem5-false-sharing : contains gem5 source code
+  |            |__ gem5-false-sharing : contains gem5 source code with our implementation
   |            |__ false-sharing-resources : contains the execution script and disk image
-  |            |__ false-sharing-benchmarks: contains the benchmarks used in our study
+  |            |__ false-sharing-benchmarks: contains the benchmarks (PARSEC applications not included)
   |___ false-sharing-scripts-micro24(scripts to launch experiment)
 
 ```
@@ -148,6 +148,20 @@ Navigate to the `prospar` directory in the docker container: `cd /home/prospar`.
   |__ gem5-false-sharing : contains gem5 source code
   |__ false-sharing-resources : contains the execution script and disk image
   |__ false-sharing-benchmarks: contains the benchmarks used in our study -->
+
+The `gem5-false-sharing` directory contains the source code of our approach.
+- MESI_Nonblocking protocol: The  MESI_Nonblocking* files in the `src/mem/ruby/protocol/` directory implements the non-blocking version of the MESI\_Two\_Level protocol. 
+- FSDetect protocol: The FS_MESI_DETECTION* files in the `src/mem/ruby/protocol/` directory implements detect approach to identify the impactful false-sharing instances.
+- FSLite protocol: The  FS_MESI* in the `src/mem/ruby/protocol/` directory implements the repair approach that mitigates false sharing by enabling privatization.   
+- The additional hardware structure modeled in our approach are located in the `src/mem/ruby/structures`.
+    - FSGlobalACT.* files implement the Shared Access Meatdata (SAM) table. 
+    - FSGAEntry.* and PerBlockEntry.* files contain the implementation of the SAM entry.
+    - FSPerCoreStateEntry.* files contain the implementation of the PrivateAccess Metadata (PAM) entry.
+    - FSOptionalPerCoreState.* files contain the implementation of the PAM table
+
+- The `src/mem/ruby/system/Sequencer.cc` file is updated to differentiate a RMW\_RD and RMW\_WR to preserve the atomicity.
+
+- Using the search string `FalseSharing`, all the changes introduced in our approach can be identified in the gem5 source code.
 
 ## Building Gem5 Source
 
@@ -160,7 +174,7 @@ cd false-sharing-scripts-micro24
 # Make sure all scripts and framework code are up-to-date
 git pull
 
-# Validate the setup by running the following script one time
+# Validate the structural setup by running the following script one time
 bash validation-script.sh
 
 # Build the necessary directories and protocols in Gem5, extract the tar image
@@ -170,6 +184,12 @@ bash setup-script.sh
 ```
 
 The container will consume around 80GB of space after building the source: 10 GB for each protocol, 30 GB for 3 protocols, and 50GB for the extracted images.
+
+Validation of all three protocol by running a micro benchmark
+
+```shell
+bash test-app-script.sh fslite fsdetect
+```
 
 We are now ready to run experiments and reproduce results.
 
@@ -183,7 +203,7 @@ Please note that the results reported in the paper are an average of 3 iteration
 
 Our scripts will parse the output results and plot the graphs automatically.
 
-For a quick validation of result, reproducing `Fig 2` (motivation), `Fig 14` (applications with false sharing), and `Fig 15` (applications without false sharing) is advised.
+For a quick validation of results presented in the paper, reproducing `Fig 2` (motivation), `Fig 14` (applications with false sharing), and `Fig 15` (applications without false sharing) is advised.
 
 ### Expected runtime for different applications with MESI Baseline protocol
 

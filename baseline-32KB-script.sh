@@ -6,15 +6,13 @@ if [ $1 ];
 then
     echo "HURON application for MESI Nonblocking protocol"
     python3 src/main.py --tasks run --trials $2 --bench huron-lockless-toy --verbose 1 --protocol MESI_Nonblocking --workloadSize small --outputDir micro-baseline-32KB --benchmark_type custom
-    python3 src/main.py --tasks run --trials $2 --bench huron-hist --verbose 1 --protocol MESI_Nonblocking --workloadSize huge --outputDir micro-baseline-32KB --benchmark_type custom
     python3 src/main.py --tasks run --trials $2 --bench huron-linear-reg --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type custom
-    python3 src/main.py --tasks run --trials $2 --bench huron-ref-count --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type custom
-    python3 src/main.py --tasks run --trials $2 --bench huron-boost-spinlock --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type custom
+    python3 src/main.py --tasks run --trials $2 --bench huron-ref-count --verbose 1 --protocol MESI_Nonblocking --workloadSize medium --outputDir micro-baseline-32KB --benchmark_type custom
+    python3 src/main.py --tasks run --trials $2 --bench huron-boost-spinlock --verbose 1 --protocol MESI_Nonblocking --workloadSize small --outputDir micro-baseline-32KB --benchmark_type custom
     python3 src/main.py --tasks run --trials $2 --bench huron-string-match --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type custom
     python3 src/main.py --tasks run --trials $2 --bench huron-locked-toy --verbose 1 --protocol MESI_Nonblocking --workloadSize medium --outputDir micro-baseline-32KB --benchmark_type custom
-    python3 src/main.py --tasks run --trials $2 --bench huron-lu-ncb --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type custom
     echo "HURON application for 32KB baseline completed"
-    python3 src/main.py --tasks run --trials $2 --bench ESTM-specfriendly-tree --verbose 1 --protocol MESI_Nonblocking --workloadSize huge --outputDir micro-baseline-32KB --benchmark_type custom
+    python3 src/main.py --tasks run --trials $2 --bench ESTM-specfriendly-tree --verbose 1 --protocol MESI_Nonblocking --workloadSize medium --outputDir micro-baseline-32KB --benchmark_type custom
     echo "Synchrobench for 32KB baseline completed"
     python3 src/main.py --tasks run --trials $2 --bench streamcluster --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type parsec
     # python3 src/main.py --tasks run --trials $2 --bench canneal --verbose 1 --protocol MESI_Nonblocking --workloadSize large --outputDir micro-baseline-32KB --benchmark_type parsec
