@@ -227,18 +227,23 @@ For a quick validation of result, reproducing `Fig 2` (motivation), `Fig 14` (ap
 
 > The total runtime for single iteration of all listed applications for MESI baseline protocol will take around **9 days**<br>
 > The runtime for *FSDetect* protocol is similar to MESI Baseline protocol<br>
-> The runtime for *FSLite* protocol will lower compared to MESI Baseline and depend on the amount of false sharing, e.g., PARSEC applications will have similar runtime to MESI baseline due to no and negligible amount of false sharing.
+> The runtime for *FSLite* protocol will be lesser compared to MESI Baseline and depend on the amount of false sharing, e.g., PARSEC applications will have similar runtime to MESI baseline due to no and negligible amount of false sharing.
+
+### Important Figure
+
+ > The figure 2, 14, and 15 are the primary result of our paper.<br>
+ > The artifact also includes script for figure 13, 17 and various optimization exploration discussed in the evaluation section(**VIII-B**) of the paper. 
 
 
 ### Reproducing Figure 2 (motivation)
 
-- `bash introduction-result.sh 1`
-- The script will take around **11 days** to complete
+- `bash introduction-result.sh <number_of_iteration>`
+- The script will take around **9 days** to complete for a  single iteration 
 - The file `figure2-runtime.pdf` should be generated in the `graph_plotting_script` folder.
 
 TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the output PDF files.
 
-### Reproducing Figure 13 (Characterization of L1misses into false sharing and non-false-sharing misses)
+### Reproducing Figure 13 (Classification of L1 misses into false sharing and non-false-sharing misses)
 - `bash false-sharing-classification.sh <number_of_iteration>`
 - The experiments of `Figure 13` will generate around **66GB** of log files for a single iteration, Therefore it is advised to run the experiment with sufficient space in the device root partition.
 - The script will take around **6-7 days** to complete 
@@ -265,14 +270,19 @@ TODO: SB: Give exact names wherever possible, e.g., `figure1.sh`. Same for the o
 ### Verifying the claim for granularity
  - `bash granularity-result.sh <number_of_iteration>`
  - A single iteration will take around **12 days** to complete 
- - The plot `granularity-runtime.pdf` will be generated in the `graph_plotting_script` folder
-
-### Verifying the claim for 40KB baseline
- - `bash micro baseline-40KB-script.sh <num_of_iteration>`
- - A single iteration will take around **9 days** to complete
- - The graph `` 
+ - The plot `figure-granularity-runtime.pdf` will be generated in the `graph_plotting_script` folder
 
 ### Verifying the claim for SAM256
  - `bash sam-result.sh <number_of_iteration>`
- - A single iteration will take around 
- - The plot `plot-sam-run-time.pdf` will be generated in the `graph_plotting_script`
+ - A single iteration will take around **9 days** to complete
+ - The plot `figure-sam-run-time.pdf` will be generated in the `graph_plotting_script`
+
+### Verifying the claim for Optimized reader
+ - `bash opt-reader-result.sh <number_of_iteration>`
+ - A single iteration will take around **9 days** to complete
+ - The plot `figure-opt-reader-run-time.pdf` will be generated in the `graph_plotting_script`
+
+### Verifying the claim for 40KB baseline
+ - `bash micro baseline-40KB-script.sh <num_of_iteration>`
+ - A single iteration will take around **18 days** to complete
+ - The graph `` 

@@ -243,7 +243,7 @@ def plot_time():
   gran2_norm_times.append(geo_mean_time)
   geo_mean_time = round(np.power(np.prod(gran4_norm_times), 1.0/len(gran4_norm_times)),PRECISION) 
   gran4_norm_times.append(geo_mean_time)
-  plot_data(gran2_norm_times, gran4_norm_times, "Speedup", "granularity-run-time.pdf")
+  plot_data(gran2_norm_times, gran4_norm_times, "Speedup", "figure-granularity-run-time.pdf")
 
 def main():
   read_csv_file()
