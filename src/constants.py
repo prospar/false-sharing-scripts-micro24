@@ -33,7 +33,7 @@ class Constants():
         "MESI_Nonblocking_40KB", "FS_MESI_DETECTION_gran2", "FS_MESI_DETECTION_gran4",
         "FS_MESI_DETECTION_gran8", "FS_MESI_gran2", "FS_MESI_gran4", "FS_MESI_gran8",
         "FS_MESI_256", "FS_MESI_DETECTION_256", "FS_MESI_Opt",
-        "FS_MESI_32", "FS_MESI_64"
+        "FS_MESI_32", "FS_MESI_64", "MESI_Nonblocking_huron""
     ]
 
     @staticmethod

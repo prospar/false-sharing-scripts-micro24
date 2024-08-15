@@ -306,3 +306,34 @@ cmake -DSE_MODE=true ..
 cmake --build .
 ```
 
+### Set up to build and execute FSLite on Native system:
+
+- Clone the [false-sharing-scripts-micro24](https://github.com/prospar/false-sharing-scripts-micro24) repository
+- Create a virtual environment `micro-venv` with python2
+  `virtualenv -p /usr/bin/python2 micro-venv`
+- Activate the virtual environment: `source <path-to-micro-venv>/bin/activate`
+- Install Gem5 dependencies in the virtual environment
+- Clone the [false sharing-micro24](https://github.com/prospar/false-sharing-micro24) in the `micro-venv` folder.
+- The directory structure:
+```
+  |-micro-virtualenv
+  |   |-false-sharing-micro24
+  |       |-gem5-false-sharing
+  |       |-false-sharing-resources
+  |       |-false-sharing-benchmarks
+  |-false-sharing-scripts-micro24
+```
+- Navigate to `gem5-false-sharing` folder and build the protocols:<br>
+```
+# prot-name: MESI_Nonblocking FS_MESI FS_MESI_DETECTION
+scons build/X86_<prot-name>/gem5.opt -j<num-core> PROTOCOL=<prot-name> --default=X86
+```
+- Navigate to `false-sharing-resources` folder
+- Copy the image tar file `custom-vm-img.tar.xz` and `parsec-img.tar.xz` into the `disk-images` folder
+- Extract the images `tar -xzvf <tar-image-file>`
+- `custom-vm` image contains applications from Synchrobench, Phoenix, Huron and Featherlight suite. `parsec-v1` image contains the PARSEC applications.
+- The `src` folder contain `linux-kernel`, `spec-2006`, and `parsec` folders. The `linux-kernel` folder contains the vmlinux-4.19.83 binary for FS mode experiments. The `spec-2006` folder contains the configuration files for running Synchrobench, Phoenix, and Huron applications. The `parsec` folder contains the configuration files for PARSEC applications
+- Running an experiment:
+```
+<path-gem5-src>/build/X86\_<protocol-name>/gem5.opt --outdir=<path-to-output-dir>/micro-<experiment-type>/<protocol-name>/<input-size>/<iteration>/<benchmark-name>/ <path-to-gem5-resources>/src/spec-2006/configs/run\_spec.py --ruby --cpu\_type=timing --num\_cpus=8 --cacheline\_size=64 --l1d\_assoc=8 --l1d\_size=32kB --l1i\_assoc=8 --l1i\_size=32kB --l2\_assoc=16 --l2\_size=2MB --tracking\_width=1 --inv\_threshold=16 --fetch\_threshold=16 --global\_act\_size=128 --size\_own=512 --kernel=<path-to-gem5-resources>/src/linux-kernel/vmlinux-4.19.83 --disk=<path-to-gem5-resources>/disk-images/custom-vm --mem\_sys=<protocol-name> --cpu\_freq=3GHz --clk\_freq=2GHz --dram\_type=DDR3 --saturation\_threshold=128 --report\_pc --size=16 --benchmark=<benchmark-name>
+```
