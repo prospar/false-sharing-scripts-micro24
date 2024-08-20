@@ -24,7 +24,7 @@ else
     echo "Stats_Avg.csv not generated, report the issue"
 fi
 
-python3 graph_script_artifact/eval-fs-app.py ${MICRO_RES}/micro-test-app/Stats_Avg.csv
+python3 graph_script_artifact/eval-fs-app-plot.py ${MICRO_RES}/micro-test-app/Stats_Avg.csv
 if [ -f "${MICRO_SCRIPT}/figure-14-runtime.pdf" ] && [ -f "${MICRO_SCRIPT}/figure-14-energy.pdf" ]; then
     echo "Artifact are functional, proceed with the validation of the artifact"
     rm ${MICRO_SCRIPT}/figure-14-runtime.pdf
