@@ -349,7 +349,7 @@ def plot_time():
   detect_norm_times.append(geo_mean_time)
   geo_mean_time = round(np.power(np.prod(repair_norm_times), 1.0/len(repair_norm_times)),PRECISION) 
   repair_norm_times.append(geo_mean_time)
-  plot_data(detect_norm_times, repair_norm_times, "Speedup", "figure-14-run-time.pdf")
+  plot_data(detect_norm_times, repair_norm_times, "Speedup", "test-app-run-time.pdf")
 
 
 def plot_traffic_vol():
@@ -380,7 +380,7 @@ def plot_traffic_vol():
   geo_mean_vol = round(np.power(np.prod(repair_norm_traffic), 1.0/len(repair_norm_traffic)),PRECISION)
   repair_norm_traffic.append(geo_mean_vol)
   plot_data(detect_norm_traffic, repair_norm_traffic,  "Normalized on-chip traffic \n(bytes)",
-            "figure-14-traffic-vol.pdf")
+            "test-app-traffic-vol.pdf")
 
 
 def plot_traffic_count():
@@ -424,7 +424,7 @@ def plot_traffic_count():
   geo_mean_count = round(np.power(np.prod(repair_norm_traffic), 1.0/(len(repair_norm_traffic)-count)),PRECISION)
   repair_norm_traffic.append(geo_mean_count)
   plot_data(detect_norm_traffic, repair_norm_traffic, "Normalized on-chip traffic \n(messages)",
-            "figure-14-traffic.pdf")
+            "test-app-traffic.pdf")
 
 # TODO: stack plot for using diff energy component 
 # fill energy, cpu2l1d energy, pam energy, sam energy, leakage energy
@@ -482,7 +482,7 @@ def plot_energy():
   repair_norm_energy.append(geo_mean_energy)
   fs_norm_energy.append(1.0)
 
-  plot_energy_data(detect_norm_energy, repair_norm_energy, "Normalized energy \n usage", "figure-14-energy.pdf")
+  plot_energy_data(detect_norm_energy, repair_norm_energy, "Normalized energy \n usage", "test-app-energy.pdf")
 
 
 
