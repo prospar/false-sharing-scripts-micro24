@@ -6,8 +6,8 @@ echo "Script for generating fig 15 of the paper : PARSEC result "
 if [ -d "${MICRO_OUT}/micro-parsec" ] && [ -d "${MICRO_OUT}/micro-parsec/FS_MESI" ] && [ -d "${MICRO_OUT}/micro-parsec/MESI_Nonblocking" ]; then
     echo "Directories for parsec result of all three protcol exist"
 else
-    echo "Run the false-sharing-app-script.sh"
-    cp ${MICRO_SCRIPT}/config-script/config.ini.parsec ${MICRO_SCRIPT}/config.ini
+    echo "Run the parsec-app-script.sh"
+    cp ${MICRO_SCRIPT}/config-script/config.ini.32KB ${MICRO_SCRIPT}/config.ini
     bash parsec-script.sh parsec-app two-protocol $1
 fi
 

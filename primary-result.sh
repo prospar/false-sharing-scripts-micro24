@@ -6,7 +6,7 @@ if [ -d "${MICRO_OUT}/micro-false-sharing-app" ] && [ -d "${MICRO_OUT}/micro-fal
     echo "Directories for primary result of FSLite and FSDetect protocol exist"
 else
     echo "Run the false-sharing-app-script.sh"
-    cp ${MICRO_SCRIPT}/cosnfig-script/config.ini.32KB ${MICRO_SCRIPT}/config.ini
+    cp ${MICRO_SCRIPT}/config-script/config.ini.32KB ${MICRO_SCRIPT}/config.ini
     bash false-sharing-fslite-script.sh false-sharing-app fslite $1
     bash false-sharing-fsdetect-script.sh false-sharing-app fsdetect $1
 fi
