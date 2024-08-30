@@ -22,7 +22,7 @@ cp -r ${MICRO_OUT}/micro-compare-huron/FS_MESI ${MICRO_OUT}/micro-compare-huron/
 cd ${MICRO_OUT}/micro-compare-huron/MESI_Nonblocking
 
 # rename huron application
-for i in $(seq 1 $i); do
+for i in $(seq 1 $1); do
     # perform operations on each folder
     # replace the following line with your desired operations
     rm -rf ${MICRO_OUT}/micro-compare-huron/MESI_Nonblocking_huron/small/${i}/huron_ll_base
@@ -46,7 +46,7 @@ for i in $(seq 1 $i); do
 done
 
 # cleanup MESI manual manual fix application
-for i in $(seq 1 $i); do
+for i in $(seq 1 $1); do
     # perform operations on each folder
     # replace the following line with your desired operations
     rm -rf ${MICRO_OUT}/micro-compare-huron/MESI_Nonblocking_manual/small/${i}/huron_ll_base
@@ -70,7 +70,7 @@ for i in $(seq 1 $i); do
 done
 
 # cleanup MESI Nonblocking protocol  application
-for i in $(seq 1 $i); do
+for i in $(seq 1 $1); do
     # perform operations on each folder
     # replace the following line with your desired operations
     rm -rf ${MICRO_OUT}/micro-compare-huron/MESI_Nonblocking_manual/small/${i}/huron_ll_man
