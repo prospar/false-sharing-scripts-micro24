@@ -533,7 +533,7 @@ def _generateNormPlot(options, workingRS, benchmarks, protocols, num_trials):
             leg = ax.get_legend()
             for x in range(len(ordered_prots) - 1):
                 try:
-                    leg.legendHandles[x].set_color(mcolors[x])
+                    leg.legend_handles[x].set_color(mcolors[x])
                 except IndexError:
                     utils.raise_error("IndexError")
             plt.ylim(0, 13)
