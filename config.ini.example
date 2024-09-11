@@ -40,7 +40,7 @@ EMAIL = prospar@cse.iitk.ac.in
  L1I_ASSOC = 8
  L1I_SIZE = "32kB"
  L2_ASSOC = 16
- L2_SIZE = "16MB"
+ L2_SIZE = "2MB"
 
 # IC FC are 8 times of the number of cores
 # because for large core count, block shared by all cores
